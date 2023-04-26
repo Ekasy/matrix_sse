@@ -1,10 +1,6 @@
 #include <iostream>
 #include <ctime>
 
-// #include "lib/matrix.h"
-// #include "lib/operations.h"
-// #include "lib/smid_operations.h"
-
 #include "lib/matrix.h"
 #include "lib/operations.h"
 #include "lib/vector.h"
@@ -70,13 +66,9 @@ int main() {
 
     auto basic = MarkTimeMatXMat(NMatrixLib::Multiply, mat1, mat2, mat3);
     auto sse = MarkTimeMatXMat(NMatrixLib::MultiplySSE, mat1, mat2, mat4);
-
     PrettyOutput("matrix measurement", mat3 == mat4, basic, sse);
 
     basic = MarkTimeMatXVec(NMatrixLib::Multiply, mat2, vec1, vec3);
     sse = MarkTimeMatXVec(NMatrixLib::MultiplySSE, mat2, vec1, vec4);
-    std::cout << vec3 << std::endl;
-    std::cout << vec4 << std::endl;
-
     PrettyOutput("matrix x vector measurement", vec3 == vec4, basic, sse);
 }
